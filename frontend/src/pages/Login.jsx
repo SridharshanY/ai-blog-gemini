@@ -17,7 +17,7 @@ export default function Login() {
 
     try {
       setLoading(true);
-      const res = await axios.post('http://localhost:4000/api/auth/login', form);
+      const res = await axios.post('/api/auth/login', form);
 
       // Save user + token locally
       localStorage.setItem('token', res.data.token);

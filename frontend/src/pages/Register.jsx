@@ -39,7 +39,7 @@ export default function Register() {
 
     try {
       setLoading(true);
-      const res = await axios.post('http://localhost:4000/api/auth/register', form);
+      const res = await axios.post('api/auth/register', form);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/editor');
