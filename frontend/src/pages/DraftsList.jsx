@@ -27,7 +27,7 @@ export default function DraftsList() {
     
     setDeletingId(id);
     try {
-      await api.delete(`/drafts/${id}`);
+      await api.delete(`/api/drafts/${id}`);
       setDrafts((prev) => prev.filter((d) => d._id !== id));
     } catch (err) {
       console.error("Failed to delete draft", err);

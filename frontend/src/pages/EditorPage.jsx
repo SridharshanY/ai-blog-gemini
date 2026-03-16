@@ -19,7 +19,7 @@ export default function EditorPage() {
     setLoadingDraft(true);
     (async () => {
       try {
-        const res = await api.get(`/drafts/${id}`);
+        const res = await api.get(`/api/drafts/${id}`);
         const d = res.data.draft;
         setTitle(d.title || '');
         setBodyHtml(d.body || '');
@@ -48,7 +48,7 @@ export default function EditorPage() {
         length: 'medium',
         model: 'gemini-2.5-flash',
       };
-      const res = await api.post('/generate', payload);
+      const res = await api.post('/api/generate', payload);
 
       let rawHtml = res?.data?.draft?.body || '';
       // Remove ```html fences if present
@@ -83,7 +83,7 @@ export default function EditorPage() {
         keywords: keywords.split(',').map(k => k.trim()).filter(Boolean),
         topic,
       };
-      const res = await api.post('/drafts', payload);
+      const res = await api.post('/api/drafts', payload);
       alert('Draft saved successfully!');
 
       // Navigate to new draft if id was not present
