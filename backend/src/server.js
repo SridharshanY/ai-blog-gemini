@@ -19,7 +19,7 @@ app.use(bodyParser.json({ limit: '3mb' }));
 app.use('/api', apiRoutes);
 app.use('/api/auth', authRoutes)
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 const MONGO = process.env.MONGO_URI
 
 mongoose.connect(MONGO, { useNewUrlParser: true, useUnifiedTopology: true })
